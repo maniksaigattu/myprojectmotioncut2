@@ -1,0 +1,52 @@
+Source code:
+
+def celsius_to_fahrenheit(celsius):
+    return (celsius * 9/5) + 32
+
+def fahrenheit_to_celsius(fahrenheit):
+    return (fahrenheit - 32) * 5/9
+
+def main():
+    print("Welcome to the Temperature Converter!")
+    
+    while True:
+        try:
+            value = float(input("Enter the temperature value: "))
+            source_unit = input("Enter the source unit (C for Celsius, F for Fahrenheit): ").upper()
+            target_unit = input("Enter the target unit (C for Celsius, F for Fahrenheit): ").upper()
+            
+            if source_unit == target_unit:
+                print("Source and target units are the same. No conversion needed.")
+                continue
+
+            if source_unit == 'F' and target_unit == 'C':
+                result = fahrenheit_to_celsius(value)
+                print(f"{value}°F is equal to {result}°C.")
+            elif source_unit == 'C' and target_unit == 'F':
+                result = celsius_to_fahrenheit(value)
+                print(f"{value}°C is equal to {result}°F.")
+            else:
+                print("Unsupported units. Please enter 'C' or 'F' for Celsius or Fahrenheit.")
+        except ValueError:
+            print("Invalid input. Please enter a numeric value for the temperature.")
+        except KeyboardInterrupt:
+            print("\nProgram terminated by the user.")
+            break
+
+print(main())
+
+
+Output:
+
+Welcome to the Temperature Converter!
+Enter the temperature value: 42
+Enter the source unit (C for Celsius, F for Fahrenheit): F
+Enter the target unit (C for Celsius, F for Fahrenheit): C
+42.0°F is equal to 5.555555555555555°C.
+Enter the temperature value: 55
+Enter the source unit (C for Celsius, F for Fahrenheit): C
+Enter the target unit (C for Celsius, F for Fahrenheit): F
+55.0°C is equal to 131.0°F.
+
+Program terminated by the user.
+None
